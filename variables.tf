@@ -90,11 +90,11 @@ variable "engine_version" {
   default     = ""
 }
 
-variable "final_snapshot_identifier" {
+/*variable "final_snapshot_identifier" {
   description = "The name of your final DB snapshot when this DB instance is deleted."
   type        = "string"
   default     = ""
-}
+}*/
 
 variable "instance_class" {
   description = "The instance type of the RDS instance"
