@@ -255,6 +255,13 @@ variable "subnet_ids" {
   default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
 }
 
+# DB subnet group
+variable "subnet_ids" {
+  description = "A list of VPC subnet IDs"
+  type        = "list"
+  default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
+}
+
 # DB parameter group
 variable "family" {
   description = "The family of the DB parameter group"
@@ -272,7 +279,7 @@ variable "parameters" {
 variable "option_group_description" {
   description = "The description of the option group"
   type        = "string"
-  default     = ""
+  default     = "Default option group for postgres 10"
 }
 
 variable "major_engine_version" {
@@ -305,6 +312,7 @@ variable "create_db_instance" {
   description = "Whether to create a database instance"
   default     = "true"
 }
+
 
 variable "timezone" {
   description = "(Optional) Time zone of the DB instance. timezone is currently only supported by Microsoft SQL Server. The timezone can only be set on creation. See MSSQL User Guide for more information."
