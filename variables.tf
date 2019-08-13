@@ -255,13 +255,6 @@ variable "subnet_ids" {
   default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
 }
 
-# DB subnet group
-variable "subnet_ids" {
-  description = "A list of VPC subnet IDs"
-  type        = "list"
-  default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
-}
-
 # DB parameter group
 variable "family" {
   description = "The family of the DB parameter group"
@@ -437,5 +430,5 @@ variable "aws_region" {
 
 variable "description" {
   type    = "string"
-  default = ""
+  default = "jhansitestdemo"
 }
