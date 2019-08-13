@@ -9,13 +9,16 @@ resource "aws_db_instance" "postgresql" {
   storage_encrypted                   = "${var.storage_encrypted}"
   kms_key_id                          = "${var.kms_key_id}"
   license_model                       = "${var.license_model}"
+
   name                                = "${var.name}"
   username                            = "${var.username}"
   password                            = "${var.password}"
   port                                = "${var.port}"
   iam_database_authentication_enabled = "${var.iam_database_authentication_enabled}"
+
   replicate_source_db                 = "${var.replicate_source_db}"
   snapshot_identifier                 = "${var.snapshot_identifier}"
+
   vpc_security_group_ids              = "${var.vpc_security_group_ids}"
   option_group_name                   = "${aws_db_option_group.default.name}"
   parameter_group_name                = "${aws_db_parameter_group.default.name}"
@@ -68,15 +71,15 @@ resource "aws_db_option_group" "default" {
   engine_name                         = "${var.engine}"
   name                                = "${var.identifier}"
   major_engine_version                = "${var.major_engine_version}"
-  option_group_description            = "${var.option_group_description}"
+  option_group_description            = "${var.description}"
 }
 resource "aws_db_parameter_group" "default" {
   name                                = "${var.identifier}"
   family                              = "${var.family}"
-  description                         = "${var.parameter_group_description}"
+  description                         = "${var.description}"
 }
 resource "aws_db_subnet_group" "default" {
   name                                = "${var.identifier}"
   subnet_ids                          = "${var.subnet_ids}"
-  description                         = "${var.subnet_group_description}"
+  description                         = "${var.description}"
 }
