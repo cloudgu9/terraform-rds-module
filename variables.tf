@@ -252,14 +252,14 @@ variable "tags" {
 variable "subnet_ids" {
   description = "A list of VPC subnet IDs"
   type        = "list"
-  default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
+  default     = [""]
 }
 
 # DB parameter group
 variable "family" {
   description = "The family of the DB parameter group"
   type        = "string"
-  default     = "postgres10"
+  default     = ""
 }
 
 variable "parameters" {
@@ -272,13 +272,13 @@ variable "parameters" {
 variable "option_group_description" {
   description = "The description of the option group"
   type        = "string"
-  default     = "Default option group for postgres 10"
+  default     = ""
 }
 
 variable "major_engine_version" {
   description = "Specifies the major version of the engine that this option group should be associated with"
   type        = "string"
-  default     = "10"
+  default     = ""
 }
 
 variable "options" {
@@ -430,5 +430,5 @@ variable "aws_region" {
 
 variable "description" {
   type    = "string"
-  default = "jhansitestdemo"
+  default = ""
 }
