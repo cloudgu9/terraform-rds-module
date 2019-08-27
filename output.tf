@@ -55,6 +55,6 @@ output "option_group_id" {
 }
 
 output "tags" {
-  value        = "${module.mandatorytags.tags}"
+  value       = "${module.mandatorytags.tags}"
   description = "List of tags"
 }

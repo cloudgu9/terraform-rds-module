@@ -34,19 +34,13 @@ resource "aws_db_instance" "postgresql" {
   maintenance_window                  = "${var.maintenance_window}"
   skip_final_snapshot                 = "${var.skip_final_snapshot}"
   copy_tags_to_snapshot               = "${var.copy_tags_to_snapshot}"
-  #final_snapshot_identifier           = "${var.final_snapshot_identifier}"
-
   backup_retention_period             = "${var.backup_retention_period}"
   backup_window                       = "${var.backup_window}"
-
-  #monitoring_interval                 = "${var.monitoring_interval}"
-  #monitoring_role_arn                 = "${var.monitoring_role_arn}"
-
   timezone                            = "${var.timezone}"
   character_set_name                  = "${var.character_set_name}"
   enabled_cloudwatch_logs_exports     = "${var.enabled_cloudwatch_logs_exports}"
 
-  deletion_protection = "${var.deletion_protection}"
+  deletion_protection                 = "${var.deletion_protection}"
 
   tags                                = "${merge(var.tags,module.mandatorytags.tags)}"
 }
@@ -68,18 +62,18 @@ module "mandatorytags" {
  }
  
 resource "aws_db_option_group" "default" {
-  engine_name                         = "${var.engine}"
-  name                                = "${var.identifier}"
-  major_engine_version                = "${var.major_engine_version}"
-  option_group_description            = "${var.description}"
+  engine_name                          = "${var.engine}"
+  name                                 = "${var.identifier}"
+  major_engine_version                 = "${var.major_engine_version}"
+  option_group_description             = "${var.description}"
 }
 resource "aws_db_parameter_group" "default" {
-  name                                = "${var.identifier}"
-  family                              = "${var.family}"
-  description                         = "${var.description}"
+  name                                 = "${var.identifier}"
+  family                               = "${var.family}"
+  description                          = "${var.description}"
 }
 resource "aws_db_subnet_group" "default" {
-  name                                = "${var.identifier}"
-  subnet_ids                          = "${var.subnet_ids}"
-  description                         = "${var.description}"
+  name                                 = "${var.identifier}"
+  subnet_ids                           = "${var.subnet_ids}"
+  description                          = "${var.description}"
 }
