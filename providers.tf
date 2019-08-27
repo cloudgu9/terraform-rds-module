@@ -5,6 +5,6 @@ provider "aws" {
   insecure = true
 
   assume_role{
-    role_arn = "arn:aws:iam::${var.aws_account}:role/ANTM-Execution-Role"
+    role_arn = "arn:aws:iam::${var.aws_account}:role/antm-developer"
   }
 }
