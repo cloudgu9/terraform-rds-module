@@ -135,31 +135,31 @@ variable "vpc_security_group_ids" {
 variable "db_subnet_group_name" {
   description = "Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the default VPC"
   type        = "string"
-  default     = ""
+  default     = "default-vpc-066c143f7d0aa0cc4"
 }
 
 variable "parameter_group_description" {
   description = "Description of the DB parameter group to create"
   type        = "string"
-  default     = ""
+  default     = "Default parameter group for postgres10"
 }
 
 variable "subnet_group_description" {
   description = "Description of the DB parameter group to create"
   type        = "string"
-  default     = ""
+  default     = "Created from the RDS Management Console"
 }
 
 variable "parameter_group_name" {
   description = "Name of the DB parameter group to associate or create"
   type        = "string"
-  default     = ""
+  default     = "default.postgres10"
 }
 
 variable "option_group_name" {
   description = "Name of the DB option group to associate. Setting this automatically disables option_group creation"
   type        = "string"
-  default     = ""
+  default     = "default:postgres-10"
 }
 
 variable "availability_zone" {
@@ -252,14 +252,14 @@ variable "tags" {
 variable "subnet_ids" {
   description = "A list of VPC subnet IDs"
   type        = "list"
-  default     = [""]
+  default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
 }
 
 # DB parameter group
 variable "family" {
   description = "The family of the DB parameter group"
   type        = "string"
-  default     = ""
+  default     = "postgres10"
 }
 
 variable "parameters" {
@@ -272,13 +272,13 @@ variable "parameters" {
 variable "option_group_description" {
   description = "The description of the option group"
   type        = "string"
-  default     = ""
+  default     = "Default option group for postgres 10"
 }
 
 variable "major_engine_version" {
   description = "Specifies the major version of the engine that this option group should be associated with"
   type        = "string"
-  default     = ""
+  default     = "10"
 }
 
 variable "options" {
@@ -348,7 +348,7 @@ variable "use_parameter_group_name_prefix" {
 variable "environment" {
   type        = "string"
   description = "DBx,SIT,PERF,PRODX,UAT,UTILx"
-  default     = ""
+  default     = "cloud"
 
   /*SIT (Multiple environments are possible, ie SIT1, SIT2, etc)
     UAT (Multiple environments are possible, ie UAT1, UAT2, etc)
@@ -360,33 +360,33 @@ variable "environment" {
 variable "company" {
   type        = "string"
   description = "Based upon company that owns resource-ANTM–Anthem"
-  default     = ""
+  default     = "anthem"
 }
 
 variable "costcenter" {
   type    = "string"
-  default = ""
+  default = "000000"
 }
 
 variable "owner-department" {
   type    = "string"
-  default = ""
+  default = "anthem"
 }
 
 variable "it-department" {
   type    = "string"
-  default = ""
+  default = "anthem"
 }
 
 variable "barometer-it-num" {
   type    = "string"
-  default = ""
+  default = "000"
 }
 
 variable "resource-type" {
   type        = "string"
   description = "Based upon the type of resource."
-  default     = ""
+  default     = "postgresql"
 
   /*SVR – server resource
 ELB – load balancer resource
@@ -402,7 +402,7 @@ XXX – other resource typesSVR, ELB, CON, GLD, GRP, IAM, POL, VOL, XXX"*/
 variable "layer" {
   type        = "string"
   description = "WEBx, MWx, DBx, UTILx"
-  default     = ""
+  default     = "cloud"
 
   /*WEBx
   MWx (ie middleware such as MW1 – MQ caching, MW2 – Liberty/Java, etc)
@@ -413,13 +413,13 @@ variable "layer" {
 variable "compliance" {
   type        = "string"
   description = "PHI, PCI, PII, SOX, None"
-  default     = ""
+  default     = "none"
 }
 
 variable "application" {
   type        = "string"
   description = "Based upon application nomenclature in server naming convention policy.Use up to six (6) characters to name your application."
-  default     = ""
+  default     = "aws"
 }
 
 variable "aws_region" {
@@ -430,5 +430,5 @@ variable "aws_region" {
 
 variable "description" {
   type    = "string"
-  default = ""
+  default = "demo"
 }
