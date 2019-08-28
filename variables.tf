@@ -47,7 +47,7 @@ variable "storage_type" {
 
 variable "storage_encrypted" {
   description = "Specifies whether the DB instance is encrypted"
-  default     = "true"
+  default     = ""
 }
 
 variable "kms_key_id" {
@@ -75,7 +75,7 @@ variable "license_model" {
 
 variable "iam_database_authentication_enabled" {
   description = "Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled"
-  default     = false
+  default     = ""
 }
 
 variable "engine" {
@@ -135,31 +135,31 @@ variable "vpc_security_group_ids" {
 variable "db_subnet_group_name" {
   description = "Name of DB subnet group. DB instance will be created in the VPC associated with the DB subnet group. If unspecified, will be created in the default VPC"
   type        = "string"
-  default     = "default-vpc-066c143f7d0aa0cc4"
+  default     = ""
 }
 
 variable "parameter_group_description" {
   description = "Description of the DB parameter group to create"
   type        = "string"
-  default     = "Default parameter group for postgres10"
+  default     = ""
 }
 
 variable "subnet_group_description" {
   description = "Description of the DB parameter group to create"
   type        = "string"
-  default     = "Created from the RDS Management Console"
+  default     = ""
 }
 
 variable "parameter_group_name" {
   description = "Name of the DB parameter group to associate or create"
   type        = "string"
-  default     = "default.postgres10"
+  default     = ""
 }
 
 variable "option_group_name" {
   description = "Name of the DB option group to associate. Setting this automatically disables option_group creation"
   type        = "string"
-  default     = "default:postgres-10"
+  default     = ""
 }
 
 variable "availability_zone" {
@@ -170,22 +170,22 @@ variable "availability_zone" {
 
 variable "multi_az" {
   description = "Specifies if the RDS instance is multi-AZ"
-  default     = false
+  default     = ""
 }
 
 variable "iops" {
   description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1'"
-  default     = 0
+  default     = ""
 }
 
 variable "publicly_accessible" {
   description = "bool to control if instance is publicly accessible"
-  default     = false
+  default     = ""
 }
 
 variable "monitoring_interval" {
   description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60."
-  default     = 30
+  default     = ""
 }
 
 variable "monitoring_role_arn" {
@@ -202,17 +202,17 @@ variable "monitoring_role_name" {
 
 variable "allow_major_version_upgrade" {
   description = "Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible"
-  default     = true
+  default     = ""
 }
 
 variable "auto_minor_version_upgrade" {
   description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
-  default     = true
+  default     = ""
 }
 
 variable "apply_immediately" {
   description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window"
-  default     = true
+  default     = ""
 }
 
 variable "maintenance_window" {
@@ -223,17 +223,17 @@ variable "maintenance_window" {
 
 variable "skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier"
-  default     = true
+  default     = ""
 }
 
 variable "copy_tags_to_snapshot" {
   description = "On delete, copy all Instance tags to the final snapshot (if final_snapshot_identifier is specified)"
-  default     = false
+  default     = ""
 }
 
 variable "backup_retention_period" {
   description = "The days to retain backups for"
-  default     = 0
+  default     = ""
 }
 
 variable "backup_window" {
@@ -252,14 +252,14 @@ variable "tags" {
 variable "subnet_ids" {
   description = "A list of VPC subnet IDs"
   type        = "list"
-  default     = ["subnet-0b9f97afb4c6bd32b" ,"subnet-0bdc00b854e54cad8"]
+  default     = [""]
 }
 
 # DB parameter group
 variable "family" {
   description = "The family of the DB parameter group"
   type        = "string"
-  default     = "postgres10"
+  default     = ""
 }
 
 variable "parameters" {
@@ -272,13 +272,13 @@ variable "parameters" {
 variable "option_group_description" {
   description = "The description of the option group"
   type        = "string"
-  default     = "Default option group for postgres 10"
+  default     = ""
 }
 
 variable "major_engine_version" {
   description = "Specifies the major version of the engine that this option group should be associated with"
   type        = "string"
-  default     = "10"
+  default     = ""
 }
 
 variable "options" {
@@ -288,22 +288,22 @@ variable "options" {
 
 variable "create_db_subnet_group" {
   description = "Whether to create a database subnet group"
-  default     = "true"
+  default     = ""
 }
 
 variable "create_db_parameter_group" {
   description = "Whether to create a database parameter group"
-  default     = "true"
+  default     = ""
 }
 
 variable "create_db_option_group" {
   description = "Whether to create a database option group"
-  default     = "true"
+  default     = ""
 }
 
 variable "create_db_instance" {
   description = "Whether to create a database instance"
-  default     = "true"
+  default     = ""
 }
 
 
@@ -337,18 +337,18 @@ variable "timeouts" {
 
 variable "deletion_protection" {
   description = "The database can't be deleted when this value is set to true."
-  default     = false
+  default     = ""
 }
 
 variable "use_parameter_group_name_prefix" {
   description = "Whether to use the parameter group name prefix or not"
-  default     = true
+  default     = ""
 }
 
 variable "environment" {
   type        = "string"
   description = "DBx,SIT,PERF,PRODX,UAT,UTILx"
-  default     = "cloud"
+  default     = ""
 
   /*SIT (Multiple environments are possible, ie SIT1, SIT2, etc)
     UAT (Multiple environments are possible, ie UAT1, UAT2, etc)
@@ -360,33 +360,33 @@ variable "environment" {
 variable "company" {
   type        = "string"
   description = "Based upon company that owns resource-ANTM–Anthem"
-  default     = "anthem"
+  default     = ""
 }
 
 variable "costcenter" {
   type    = "string"
-  default = "000000"
+  default = ""
 }
 
 variable "owner-department" {
   type    = "string"
-  default = "anthem"
+  default = ""
 }
 
 variable "it-department" {
   type    = "string"
-  default = "anthem"
+  default = ""
 }
 
 variable "barometer-it-num" {
   type    = "string"
-  default = "000"
+  default = ""
 }
 
 variable "resource-type" {
   type        = "string"
   description = "Based upon the type of resource."
-  default     = "postgresql"
+  default     = ""
 
   /*SVR – server resource
 ELB – load balancer resource
@@ -402,7 +402,7 @@ XXX – other resource typesSVR, ELB, CON, GLD, GRP, IAM, POL, VOL, XXX"*/
 variable "layer" {
   type        = "string"
   description = "WEBx, MWx, DBx, UTILx"
-  default     = "cloud"
+  default     = ""
 
   /*WEBx
   MWx (ie middleware such as MW1 – MQ caching, MW2 – Liberty/Java, etc)
@@ -413,13 +413,13 @@ variable "layer" {
 variable "compliance" {
   type        = "string"
   description = "PHI, PCI, PII, SOX, None"
-  default     = "none"
+  default     = ""
 }
 
 variable "application" {
   type        = "string"
   description = "Based upon application nomenclature in server naming convention policy.Use up to six (6) characters to name your application."
-  default     = "aws"
+  default     = ""
 }
 
 variable "aws_region" {
@@ -430,5 +430,5 @@ variable "aws_region" {
 
 variable "description" {
   type    = "string"
-  default = "demo"
+  default = ""
 }
