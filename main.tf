@@ -20,9 +20,9 @@ resource "aws_db_instance" "postgresql" {
   snapshot_identifier                 = "${var.snapshot_identifier}"
 
   vpc_security_group_ids              = "${var.vpc_security_group_ids}"
-  option_group_name                   = "${aws_db_option_group.default.name}"
-  parameter_group_name                = "${aws_db_parameter_group.default.name}"
-  db_subnet_group_name                = "${aws_db_subnet_group.default.name}"
+  option_group_name                   = "${var.option_group_name}"
+  parameter_group_name                = "${var.parameter_group_name}"
+  db_subnet_group_name                = "${var.db_subnet_group_name}"
   availability_zone                   = "${var.availability_zone}"
   multi_az                            = "${var.multi_az}"
   iops                                = "${var.iops}"
@@ -61,19 +61,3 @@ module "mandatorytags" {
     compliance                         = "${var.compliance}"
  }
  
-resource "aws_db_option_group" "default" {
-  engine_name                          = "${var.engine}"
-  name                                 = "${var.identifier}"
-  major_engine_version                 = "${var.major_engine_version}"
-  option_group_description             = "${var.description}"
-}
-resource "aws_db_parameter_group" "default" {
-  name                                 = "${var.identifier}"
-  family                               = "${var.family}"
-  description                          = "${var.description}"
-}
-resource "aws_db_subnet_group" "default" {
-  name                                 = "${var.identifier}"
-  subnet_ids                           = "${var.subnet_ids}"
-  description                          = "${var.description}"
-}

@@ -43,17 +43,6 @@ output "instance_port" {
   value       = "${join("", aws_db_instance.postgresql.*.port)}"
 }
 
-output "parameter_group_id" {
-  value       = "${join("", aws_db_parameter_group.default.*.id)}"
-  description = "ID of the Parameter Group"
-}
-
-output "option_group_id" {
-  value       = "${join("", aws_db_option_group.default.*.id)}"
-  description = "ID of the Option Group"
-  
-}
-
 output "tags" {
   value       = "${module.mandatorytags.tags}"
   description = "List of tags"

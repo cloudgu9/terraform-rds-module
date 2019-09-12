@@ -75,7 +75,7 @@ variable "license_model" {
 
 variable "iam_database_authentication_enabled" {
   description = "Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled"
-  default     = ""
+  default     = false
 }
 
 variable "engine" {
@@ -170,22 +170,22 @@ variable "availability_zone" {
 
 variable "multi_az" {
   description = "Specifies if the RDS instance is multi-AZ"
-  default     = ""
+  default     = false
 }
 
 variable "iops" {
   description = "The amount of provisioned IOPS. Setting this implies a storage_type of 'io1'"
-  default     = ""
+  default     = 0
 }
 
 variable "publicly_accessible" {
   description = "bool to control if instance is publicly accessible"
-  default     = ""
+  default     = false
 }
 
 variable "monitoring_interval" {
   description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60."
-  default     = ""
+  default     = 30
 }
 
 variable "monitoring_role_arn" {
@@ -202,17 +202,17 @@ variable "monitoring_role_name" {
 
 variable "allow_major_version_upgrade" {
   description = "Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage and the change is asynchronously applied as soon as possible"
-  default     = ""
+  default     = false
 }
 
 variable "auto_minor_version_upgrade" {
   description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
-  default     = ""
+  default     = true
 }
 
 variable "apply_immediately" {
   description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window"
-  default     = ""
+  default     = false
 }
 
 variable "maintenance_window" {
@@ -223,12 +223,12 @@ variable "maintenance_window" {
 
 variable "skip_final_snapshot" {
   description = "Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier"
-  default     = ""
+  default     = true
 }
 
 variable "copy_tags_to_snapshot" {
   description = "On delete, copy all Instance tags to the final snapshot (if final_snapshot_identifier is specified)"
-  default     = ""
+  default     = false
 }
 
 variable "backup_retention_period" {
@@ -337,7 +337,7 @@ variable "timeouts" {
 
 variable "deletion_protection" {
   description = "The database can't be deleted when this value is set to true."
-  default     = ""
+  default     = false
 }
 
 variable "use_parameter_group_name_prefix" {
